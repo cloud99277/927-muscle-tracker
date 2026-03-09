@@ -27,10 +27,16 @@ const App = {
                 Store.onDataChange(() => this._render());
                 const hash = window.location.hash.slice(2) || 'dashboard';
                 this.navigate(hash);
+            } else {
+                // 未登录 → 显示登录页
+                this._currentPage = 'login';
+                this._render();
             }
         });
 
-        // 如果 Firebase 未配置，直接检查是否有本地数据决定显示
+        // Firebase 已配置时，onAuthChange 会被触发（user=null），自动渲染登录页
+        // Firebase 未配置时，Auth.init() 会模拟 user 并触发回调
+        // 但为保险起见，也做一次兜底渲染
         if (!fbReady) {
             this._render();
         }
