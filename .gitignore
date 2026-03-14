@@ -1,0 +1,15 @@
+# Firebase secrets (NEVER commit real keys!)
+js/firebase-config.local.js
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
