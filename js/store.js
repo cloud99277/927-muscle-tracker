@@ -8,29 +8,33 @@
 const STORAGE_KEY = 'muscle-tracker-v2-data';
 
 const DEFAULT_TEMPLATES = {
+    // V3 居家版：推（胸+肩+三头）
     A: [
-        { name: '杠铃深蹲', defaultSets: 3, defaultReps: '8-12', muscle: '腿臀核心' },
-        { name: '杠铃卧推', defaultSets: 3, defaultReps: '8-12', muscle: '胸肩三头' },
-        { name: '哑铃肩推', defaultSets: 3, defaultReps: '10-12', muscle: '肩' },
+        { name: '哑铃地板卧推', defaultSets: 4, defaultReps: '8-12', muscle: '胸三头' },
+        { name: '俯卧撑', defaultSets: 3, defaultReps: '力竭', muscle: '胸三头核心' },
+        { name: '哑铃站姿肩推', defaultSets: 3, defaultReps: '10-12', muscle: '肩' },
         { name: '哑铃侧平举', defaultSets: 3, defaultReps: '12-15', muscle: '三角肌中束' },
-        { name: '绳索下压', defaultSets: 3, defaultReps: '10-15', muscle: '三头' },
-        { name: '平板支撑', defaultSets: 3, defaultReps: '30-60秒', muscle: '核心' }
+        { name: '哑铃颈后臂屈伸', defaultSets: 3, defaultReps: '10-15', muscle: '三头' },
+        { name: '钻石俯卧撑', defaultSets: 2, defaultReps: '力竭', muscle: '三头内胸' }
     ],
+    // V3 居家版：拉（背+二头）
     B: [
-        { name: '罗马尼亚硬拉', defaultSets: 3, defaultReps: '8-10', muscle: '腘绳臀下背' },
-        { name: '高位下拉', defaultSets: 3, defaultReps: '8-12', muscle: '背二头' },
-        { name: '坐姿划船', defaultSets: 3, defaultReps: '10-12', muscle: '中背' },
+        { name: '哑铃俯身划船', defaultSets: 4, defaultReps: '8-12', muscle: '背阔中背' },
+        { name: '哑铃单臂划船', defaultSets: 3, defaultReps: '10-12/侧', muscle: '背阔' },
+        { name: '哑铃罗马尼亚硬拉', defaultSets: 3, defaultReps: '8-10', muscle: '腘绳臀下背' },
+        { name: '超人式', defaultSets: 3, defaultReps: '12-15', muscle: '竖脊下背' },
         { name: '哑铃弯举', defaultSets: 3, defaultReps: '10-15', muscle: '二头' },
-        { name: '面拉', defaultSets: 3, defaultReps: '15-20', muscle: '后三角' },
-        { name: '卷腹', defaultSets: 3, defaultReps: '15-20', muscle: '腹肌' }
+        { name: '哑铃锤式弯举', defaultSets: 3, defaultReps: '10-12', muscle: '肱桡二头' }
     ],
+    // V3 居家版：腿+核心
     C: [
-        { name: '腿举', defaultSets: 3, defaultReps: '10-12', muscle: '股四臀' },
-        { name: '上斜哑铃卧推', defaultSets: 3, defaultReps: '8-12', muscle: '上胸' },
-        { name: '单臂哑铃划船', defaultSets: 3, defaultReps: '10-12/侧', muscle: '背' },
+        { name: '哑铃高脚杯深蹲', defaultSets: 4, defaultReps: '10-15', muscle: '股四臀' },
         { name: '哑铃箭步蹲', defaultSets: 3, defaultReps: '10/腿', muscle: '股四臀' },
-        { name: '站姿提踵', defaultSets: 3, defaultReps: '15-20', muscle: '小腿' },
-        { name: '超人式', defaultSets: 3, defaultReps: '12-15', muscle: '下背' }
+        { name: '哑铃罗马尼亚硬拉', defaultSets: 3, defaultReps: '10-12', muscle: '腘绳臀' },
+        { name: '保加利亚分腿蹲', defaultSets: 3, defaultReps: '8-10/腿', muscle: '股四臀' },
+        { name: '哑铃提踵', defaultSets: 3, defaultReps: '15-20', muscle: '小腿' },
+        { name: '平板支撑', defaultSets: 3, defaultReps: '30-60秒', muscle: '核心' },
+        { name: '卷腹', defaultSets: 3, defaultReps: '15-20', muscle: '腹直肌' }
     ]
 };
 
