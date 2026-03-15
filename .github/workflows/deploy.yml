@@ -22,6 +22,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Inject Firebase config
+        run: |
+          cat > js/firebase-config.local.js << 'JSEOF'
+          const FIREBASE_CONFIG = {
+              apiKey: "${{ secrets.FIREBASE_API_KEY }}",
+              authDomain: "${{ secrets.FIREBASE_AUTH_DOMAIN }}",
+              databaseURL: "${{ secrets.FIREBASE_DATABASE_URL }}",
+              projectId: "${{ secrets.FIREBASE_PROJECT_ID }}",
+              storageBucket: "${{ secrets.FIREBASE_STORAGE_BUCKET }}",
+              messagingSenderId: "${{ secrets.FIREBASE_SENDER_ID }}",
+              appId: "${{ secrets.FIREBASE_APP_ID }}"
+          };
+          JSEOF
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

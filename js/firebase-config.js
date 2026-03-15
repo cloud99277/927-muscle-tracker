@@ -8,14 +8,14 @@
  * 4. 将下方 firebaseConfig 中的占位符替换为你的项目配置
  */
 
-const firebaseConfig = {
+const firebaseConfig = (typeof FIREBASE_CONFIG !== 'undefined') ? FIREBASE_CONFIG : {
     apiKey: "REDACTED_API_KEY",
     authDomain: "REDACTED_AUTH_DOMAIN",
     databaseURL: "REDACTED_DATABASE_URL",
     projectId: "REDACTED_PROJECT_ID",
     storageBucket: "REDACTED_PROJECT_ID.firebasestorage.app",
     messagingSenderId: "REDACTED_SENDER_ID",
-    appId: "1:REDACTED_SENDER_ID:web:4542f6571eb2c018fa27b0"
+    appId: "1:REDACTED_SENDER_ID:web:placeholder"
 };
 
 // 初始化 Firebase
@@ -25,7 +25,7 @@ let isFirebaseReady = false;
 function initFirebase() {
     try {
         // 检查配置是否已填写
-        if (firebaseConfig.apiKey === "YOUR_API_KEY") {
+        if (firebaseConfig.apiKey.startsWith("REDACTED")) {
             console.warn('⚠️ Firebase 配置未填写，将使用离线模式（localStorage）');
             return false;
         }
